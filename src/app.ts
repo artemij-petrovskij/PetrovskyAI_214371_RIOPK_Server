@@ -8,6 +8,13 @@ import AuthRouter from "./routes/auth.route";
 
 import ResumeRouter from "./routes/resume.route";
 
+//const swaggerUi = require('swagger-ui-express');
+import swaggerUi from 'swagger-ui-express';
+//const swaggerDocument = require('./swagger.json');
+import swaggerDocument from './swagger.json'
+
+
+
 
 import VacancyRouter from "./routes/vacancy.route";
 
@@ -18,6 +25,7 @@ require('dotenv').config()
 
 const PORT = process.env.PORT || 8080;
 const app = express();
+
 
 const authRouter = new AuthRouter()
 
@@ -35,6 +43,9 @@ app.use("/api/resume", resumeRouter.getRouter());
 app.use("/api/vacancy", vacancyRouter.getRouter());
 app.use("/auth", authRouter.getRouter());
 app.use("/report", reportRouter.getRouter());
+
+app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocument));
+
 
 const MONGODB_URI = process.env.MONGODB_URI2 as string
 
