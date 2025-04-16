@@ -1,10 +1,5 @@
 import express from "express";
 import { ResumeController } from "../core/repository/resume.controller";
-// import { AccountingControllerTN } from "../core/repository/accounting-TN.controller";
-// import { AccountingControllerPKO } from "../core/repository/accounting-PKO.controller";
-// import { AccountingControllerRKO } from "../core/repository/accounting-RKO.controller";
-// import { AccountingControllerPSO } from "../core/repository/accounting-PSO.controller";
-// import { AccountingControllerPNA } from "../core/repository/accounting-PNA.controller";
 
 const { authenticateToken } = require('../middleware/auth.middleware')
 
@@ -17,11 +12,7 @@ interface Routes {
 class ResumeRouter implements Routes {
     router = express.Router();
     resume = new ResumeController();
-    // accounting_TN  = new AccountingControllerTN();
-    // accounting_PKO = new AccountingControllerPKO();
-    // accounting_RKO = new AccountingControllerRKO();
-    // accounting_PSO = new AccountingControllerPSO();
-    // accounting_PNA = new AccountingControllerPNA();
+
 
     constructor() {
         this.initRoutes();
@@ -30,7 +21,7 @@ class ResumeRouter implements Routes {
     initRoutes() {
         this.router.post('/adverts', this.resume.getResumes.bind(this.resume));
 
-        this.router.put('/advert-TTN', this.resume.createResume.bind(this.resume));
+        this.router.put('/advert', this.resume.createResume.bind(this.resume));
 
         this.router.post('/my-adverts', this.resume.getCurrentResumes.bind(this.resume));
 
