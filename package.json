@@ -8,7 +8,8 @@
     "dev:ts": "tsc -w",
     "dev:js": "nodemon ./dist/app.js",
     "build": "tsc -p .",
-    "dev": "concurrently npm:dev:*"
+    "dev": "concurrently npm:dev:*",
+    "test": "jest"
   },
   "author": "artemij-petrovskij",
   "license": "ISC",
@@ -27,11 +28,17 @@
     "swagger-ui-express": "^5.0.1"
   },
   "devDependencies": {
+    "@jest/globals": "^29.7.0",
     "@types/express": "^4.17.18",
+    "@types/jest": "^29.5.14",
     "@types/node": "^20.7.0",
+    "@types/supertest": "^6.0.3",
     "@types/swagger-ui-express": "^4.1.8",
     "concurrently": "^8.2.1",
+    "jest": "^29.7.0",
     "nodemon": "^3.0.1",
+    "supertest": "^7.1.0",
+    "ts-jest": "^29.3.2",
     "typescript": "^5.2.2"
   }
 }
