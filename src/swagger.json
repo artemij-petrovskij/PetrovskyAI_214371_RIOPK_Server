@@ -94,7 +94,7 @@
         ],
         "summary": "Finds resumes for current user.",
         "description": "Multiple status values can be provided with comma separated strings.",
-        "operationId": "findPetsByStatus",
+        "operationId": "findResumesByStatus",
         "responses": {
           "200": {
             "description": "successful operation"
@@ -127,7 +127,7 @@
           {
             "name": "id",
             "in": "path",
-            "description": "ID of pet to return",
+            "description": "ID of resume to return",
             "required": true,
             "schema": {
               "type": "integer",
@@ -141,12 +141,12 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/Pet"
+                  "$ref": "#/components/schemas/Resume"
                 }
               },
               "application/xml": {
                 "schema": {
-                  "$ref": "#/components/schemas/Pet"
+                  "$ref": "#/components/schemas/Resume"
                 }
               }
             }
@@ -155,7 +155,7 @@
             "description": "Invalid ID supplied"
           },
           "404": {
-            "description": "Pet not found"
+            "description": "Resume not found"
           },
           "default": {
             "description": "Unexpected error",
@@ -174,8 +174,8 @@
           },
           {
             "petstore_auth": [
-              "write:pets",
-              "read:pets"
+              "write:Resume",
+              "read:Resume"
             ]
           }
         ]
@@ -216,8 +216,8 @@
           },
           {
             "petstore_auth": [
-              "write:pets",
-              "read:pets"
+              "write:Resume",
+              "read:Resume"
             ]
           }
         ]
